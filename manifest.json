@@ -1,0 +1,13 @@
+{
+    "short_name": "react-pwa-boilerplate",
+    "name": "react-pwa-boilerplate",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./",
+    "display": "standalone"
+}
