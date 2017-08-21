@@ -3,20 +3,18 @@ import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 
-    function tick() {
-        const element = (
-            <div>
-                <h1> hello, world!</h1>
-                <h2> It is {new Date().toString()}.</h2>
-            </div>
-        );
+function show(){
+    function Welcome(props) {
+        return <h1>Hello, {props.name}</h1>;
+    }
 
-        ReactDOM.render(
-            element,
-            document.getElementById('root')
-        );
-    };
-setInterval(tick, 1000);
+    const element = <Welcome name="Maison" />;
+    ReactDOM.render(
+        element,
+        document.getElementById('root')
+    );
+}
+setInterval(show, 1000);
 
 class App extends Component {
 
