@@ -8,9 +8,18 @@ function show(){
         return <h1>Hello, {props.name}</h1>;
     }
 
+    function App1() {
+        return (
+            <div>
+                <Welcome name="Maison" />
+                <Welcome name="CW" />
+                <Welcome name="Chen" />
+            </div>
+        )
+    }
     const element = <Welcome name="Maison" />;
     ReactDOM.render(
-        element,
+        <App1 />,
         document.getElementById('root')
     );
 }
