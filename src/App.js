@@ -4,42 +4,32 @@ import logo from './logo.svg';
 import './App.css';
 
 
-class Clock extends Component {
+class Toggle extends Component {
     constructor(props) {
         super(props);
-        this.state = {date: new Date()};
+        this.state = {isToggleOn: true};
+        // This binding is necessary to make `this` work in the callback
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),// means function () { this.tick(); }
-            1000
-        );
+    handleClick() {
+        this.setState(prevState => ({
+            isToggleOn: !prevState.isToggleOn
+        }));
     }
 
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState({
-            date: new Date()
-        });
-    }
-
-  render() {
+    render() {
     return (
-      <div>
-        <h1> Hello, World! </h1>
-        <h2> It is {this.state.date.toLocaleTimeString()}.</h2>
-      </div>
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
     );
   }
 }
 
 function show() {
 ReactDOM.render(
-    <Clock />,
+    <Toggle />,
     document.getElementById('root')
 );
 }
